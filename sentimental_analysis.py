@@ -1,4 +1,4 @@
-import sqlite3
+from sqlite3 import connect
 import re
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import CountVectorizer
@@ -30,7 +30,7 @@ def sanitize_tweets(tweets):
 
 
 def main():
-    connection = sqlite3.connect('data/database.sqlite')
+    connection = connect('data/database.sqlite')
     cursor = connection.cursor()
     cursor.execute("SELECT text, airline_sentiment FROM Tweets")
 
@@ -57,7 +57,7 @@ def main():
 
     result = forest.predict(test_data_features)
 
-    print accuracy_score(test_sentiment, result)  # 0.751898384647
+    print accuracy_score(test_sentiment, result)  # 0.752450641999
 
     connection.close()
 
