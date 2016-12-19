@@ -31,8 +31,11 @@ def sanitize_tweets(tweets):
 
 def main():
     connection = connect('data/database.sqlite')
+    
     cursor = connection.cursor()
     cursor.execute("SELECT text, airline_sentiment FROM Tweets")
+
+    connection.close()
 
     clean_tweets = sanitize_tweets(cursor.fetchall())
     train, test = train_test_split(clean_tweets, train_size=0.5)
@@ -58,8 +61,6 @@ def main():
     result = forest.predict(test_data_features)
 
     print accuracy_score(test_sentiment, result)  # 0.752450641999
-
-    connection.close()
 
 
 if __name__ == "__main__":
