@@ -1,10 +1,13 @@
 from sqlite3 import connect
 import re
+import warnings
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import accuracy_score
+
+warnings.filterwarnings("ignore")
 
 stops = set(stopwords.words("english"))
 
@@ -31,14 +34,14 @@ def sanitize_tweets(tweets):
 
 def main():
     connection = connect('data/database.sqlite')
-    
+
     cursor = connection.cursor()
     cursor.execute("SELECT text, airline_sentiment FROM Tweets")
 
-    connection.close()
-
     clean_tweets = sanitize_tweets(cursor.fetchall())
     train, test = train_test_split(clean_tweets, train_size=0.5)
+
+    connection.close()
 
     vectorizer = CountVectorizer(
         analyzer="word", tokenizer=None, preprocessor=None, stop_words=None, max_features=5000)
