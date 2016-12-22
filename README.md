@@ -7,7 +7,7 @@ This project uses Random Forest Classifier for finding sentiment of a tweet. The
 2. Neutral
 3. Negative
 
-On the given dataset, it scores 0.75 accuracy score.
+On the given dataset, it achieves 0.75 accuracy score.
 
 ## Installation
 To be added
