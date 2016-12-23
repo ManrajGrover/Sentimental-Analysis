@@ -1,4 +1,5 @@
 # Sentimental Analysis
+Sentimental analysis of tweets related to airlines.
 
 ## What is it?
 This project uses Random Forest Classifier for finding sentiment of a tweet. There are three possible output:
@@ -10,13 +11,15 @@ This project uses Random Forest Classifier for finding sentiment of a tweet. The
 On the given dataset, it achieves 0.75 accuracy score.
 
 ## Installation
-To be added
 
 ## Dataset used
 
 To download dataset, click [here](https://www.kaggle.com/crowdflower/twitter-airline-sentiment/downloads/twitter-airline-sentiment.zip)
 
 ## How to use
+To be added
+
+## Dependencies
 To be added
 
 ## License
